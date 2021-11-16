@@ -4,8 +4,8 @@ const _ = require('lodash');
 const {GraphQLObjectType,GraphQLString,GraphQLInt,GraphQLSchema} = graphql
 
 const users = [
-    {id:23,firstName: 'Hasham Javed',age: 26},
-    {id:54, firstName: 'Saif Javed',age: 20}
+    {id:"23",firstName: 'Hasham Javed',age: 26},
+    {id:"54", firstName: 'Saif Javed',age: 20}
 ]
 
 const UserType = new GraphQLObjectType({
@@ -25,7 +25,7 @@ const RootQuery = new GraphQLObjectType({
             args: {id : {type: GraphQLString}},
             resolve(parentValue,args){
                 //do database query inside this function
-                return _.find(users,{id:args.age})
+                return _.find(users,{id:args.id})
             }
         }
     }
