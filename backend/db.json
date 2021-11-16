@@ -1,0 +1,12 @@
+{
+    "users":[
+        {"id":"23","firstName": "Hasham Javed","age": "26","companyId":"1"},
+        {"id":"54", "firstName": "Saif Javed","age": "20","companyId":"1"},
+        {"id":"22", "firstName": "Alexendra","age": "18","companyId":"2"},
+        {"id":"6", "firstName": "Taylor Swift","age": "27","companyId":"1"}
+    ],
+    "companies":[
+        {"id":"1","name": "Apple", "description":"iphone"},
+        {"id":"2","name": "Samsung", "description":"android"}
+    ]
+}
