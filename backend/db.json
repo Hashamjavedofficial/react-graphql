@@ -1,10 +1,9 @@
 {
   "users": [
     {
-      "id": "54",
-      "firstName": "Saif Javed",
-      "age": "20",
-      "companyId": "1"
+      "firstName": "Mocha",
+      "age": 21,
+      "id": "54"
     },
     {
       "id": "22",
@@ -17,6 +16,12 @@
       "firstName": "Taylor Swift",
       "age": "27",
       "companyId": "1"
+    },
+    {
+      "firstName": "Saif javed",
+      "age": 21,
+      "companyId": "2",
+      "id": "c_bCPr4"
     }
   ],
   "companies": [
