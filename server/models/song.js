@@ -13,15 +13,16 @@ const SongSchema = new Schema({
   }]
 });
 
-SongSchema.statics.addLyric = function(id, content) {
+SongSchema.statics.addLyric = async function(id, content) {
   const Lyric = mongoose.model('lyric');
-
   return this.findById(id)
     .then(song => {
       const lyric = new Lyric({ content, song })
       song.lyrics.push(lyric)
       return Promise.all([lyric.save(), song.save()])
-        .then(([lyric, song]) => song);
+        .then(([lyric, song]) => song).catch(e=>{
+          console.log('error in catch',e)
+          });
     });
 }
 
