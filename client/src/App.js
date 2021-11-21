@@ -1,11 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import ApolloClient from "apollo-boost";
+import {ApolloProvider} from 'react-apollo'
+
+import SongList from "./components/SongList";
+
+const client = new ApolloClient({})
 
 function App() {
   return (
-    <div className="App">
-     Lyrics
-    </div>
+    <ApolloProvider client={client}>
+        <SongList />
+    </ApolloProvider>
   );
 }
 
