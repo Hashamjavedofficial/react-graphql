@@ -1,9 +1,5 @@
 import React from 'react'
-import gql from "graphql-tag";
-
-const SongList = (props)=>{
-    return (<div>SongList</div>)
-}
+import {useQuery,gql} from "@apollo/client";
 
 const query = gql`
   {
@@ -12,5 +8,12 @@ const query = gql`
     }
   }
 `
+const SongList = (props)=>{
+    const {data , loading} = useQuery(query)
+    console.log(data,loading)
+    return (<div>SongList</div>)
+}
+
+
 
 export default SongList

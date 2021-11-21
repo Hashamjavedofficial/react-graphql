@@ -4,6 +4,7 @@ const expressGraphQL = require('express-graphql');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const schema = require('./schema/schema');
+const cors = require('cors')
 
 const app = express();
 
@@ -16,7 +17,7 @@ if (!MONGO_URI) {
 mongoose.Promise = global.Promise;
 mongoose.connect(MONGO_URI);
 
-
+app.use(cors())
 app.use(bodyParser.json());
 app.use('/graphql', expressGraphQL({
   schema,
