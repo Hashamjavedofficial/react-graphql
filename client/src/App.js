@@ -1,6 +1,7 @@
 import React from 'react'
 import {ApolloClient,ApolloProvider,InMemoryCache, HttpLink, from} from '@apollo/client'
 import {onError} from "@apollo/client/link/error";
+import {Route,Switch,Redirect} from 'react-router-dom'
 
 import SongList from "./components/SongList";
 
@@ -25,9 +26,13 @@ const client = new ApolloClient({
 function App() {
   return (
       <ApolloProvider client={client}>
-          {" "}
           {/* <GetUsers /> */}
-          <SongList />
+          <Switch>
+              <Route to='/'>
+                <SongList />
+              </Route>
+              <Redirect to='/' />
+          </Switch>
       </ApolloProvider>
   );
 }
