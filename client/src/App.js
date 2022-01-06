@@ -5,6 +5,7 @@ import {Route,Switch,Redirect} from 'react-router-dom'
 
 import SongList from "./components/SongList";
 import SongCreate from "./components/SongCreate";
+import SongDetails from "./components/SongDetails"
 
 const errorLink = onError(({ graphqlErrors, networkError }) => {
     if (graphqlErrors) {
@@ -34,6 +35,9 @@ function App() {
               </Route>
               <Route path='/' exact>
                   <SongList />
+              </Route>
+              <Route path='/song/:id' exact>
+                  <SongDetails/>
               </Route>
               <Redirect to='/' />
           </Switch>

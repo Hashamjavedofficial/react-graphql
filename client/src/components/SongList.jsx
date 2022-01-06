@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useQuery, gql,useMutation } from "@apollo/client";
-import {Link} from 'react-router-dom'
+import {Link,useHistory} from 'react-router-dom'
 
 const query = gql`
   {
@@ -20,6 +20,7 @@ const mutation = gql`
     }
 `
 const SongList = (props) => {
+  const history = useHistory()
   const { data, loading,error,refetch } = useQuery(query)
   const [deleteSong, options] = useMutation(mutation)
   const [songs, setSongs] = useState([])
@@ -34,7 +35,7 @@ const SongList = (props) => {
   return (
     <>
       {loading ? <h1>Loading....</h1> : <ul className="collection">
-        {data.songs.map(song => <li key={song.id} style={{display: 'flex',justifyContent: 'space-between'}} className="collection-item">{song.title} <button onClick={()=>deleteSongHandler(song.id)}>Delete</button></li>)}
+        {data.songs.map(song => <li onClick={()=>{history.push(`/song/${song.id}`)}} key={song.id} style={{display: 'flex',justifyContent: 'space-between'}} className="collection-item">{song.title} <button onClick={()=>deleteSongHandler(song.id)}>Delete</button></li>)}
       </ul>}
       <Link to={'/create-song'}>
         <button>Create Song</button>
