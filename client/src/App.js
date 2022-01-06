@@ -4,6 +4,7 @@ import {onError} from "@apollo/client/link/error";
 import {Route,Switch,Redirect} from 'react-router-dom'
 
 import SongList from "./components/SongList";
+import SongCreate from "./components/SongCreate";
 
 const errorLink = onError(({ graphqlErrors, networkError }) => {
     if (graphqlErrors) {
@@ -28,8 +29,11 @@ function App() {
       <ApolloProvider client={client}>
           {/* <GetUsers /> */}
           <Switch>
-              <Route to='/'>
-                <SongList />
+              <Route path='/create-song' exact>
+                  <SongCreate />
+              </Route>
+              <Route path='/' exact>
+                  <SongList />
               </Route>
               <Redirect to='/' />
           </Switch>
